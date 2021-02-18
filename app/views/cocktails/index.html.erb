@@ -3,13 +3,12 @@
 
 <div class="container">
   <h1>Cocktails</h1>
-  <div class="row">
+  <div class="row align-items-center">
     <% @cocktails.each do |cocktail| %>
-    <div class="col-3">
-      <div class="card" style="width: 18rem;">
+    <div class="col-4 m-1">
+      <div class="card" style="">
         <div class="card-body">
           <h2><%= link_to cocktail.name, cocktail %></h2>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
       </div>
     </div>
@@ -17,5 +16,5 @@
   </div>
 
   <br>
-  <%= link_to 'Add a cocktail', new_cocktail_path %>
+  <%= link_to 'Add a cocktail', new_cocktail_path, class: 'btn btn-primary' %>
 </div>

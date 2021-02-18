@@ -1,8 +1,25 @@
 <div class="container">
   <h1>Cocktails</h1>
   <div class="row">
-    <%= @cocktail.name %>
+   <div class="col-3">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h3><%= @cocktail.name %></h3>
+             <ul>
+               <% @cocktail.doses.each do |dose| %>
+               <li>
+                 <%= dose.description %> - <%= dose.ingredient.name %>
+                 <%= link_to "❌", dose_path(dose), method: :delete %>
+               </li>
+               <% end %>
+             </ul>
+          </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<%= link_to 'All cocktails', cocktails_path  %>
+<%= link_to 'All cocktails', cocktails_path, class: 'btn btn-primary' %>
+<%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: 'btn btn-primary'  %>
+
+
