@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/random?lime, cocktail');">
-  <%= link_to 'Add a cocktail', new_cocktail_path, class: 'btn mx-5' %>
+  <%= link_to 'All Cocktails', cocktails_path, class: 'btn mx-5' %>
   <div class="container text-center">
-    <h1>Add a shot</h1>
+    <h1>Add a Shot(s) to <%= @cocktail.name %></h1>
   </div>
 </div>
 
@@ -9,6 +9,12 @@
 <div class="container mt-5">
   <div class="row justify-content-center ">
     <div class="col-4 shadow-sm p-3 mb-5 bg-body rounded">
+      <% @cocktail.doses.each do |dose| %>
+      <p>
+        <%= dose.description %> - <%= dose.ingredient.name %>
+        <%= link_to "❌", cocktail_path(@cocktail), method: :delete %>
+      </p>
+      <% end %>
       <%= simple_form_for([@cocktail, @dose]) do |f| %>
       <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
