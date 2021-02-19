@@ -19,13 +19,22 @@
           <i class="fas fa-pen"></i>
           <% end %>
           <div class="card-info">
-           <% cocktail.doses.each do |dose| %>
-           <p>
-            <%= dose.description %> - <%= dose.ingredient.name %>
-          </p>
-          <% end %>
-        </div>
-        </div>
+            <% cocktail.doses.each do |dose| %>
+            <p>
+              <%= dose.description %> - <%= dose.ingredient.name %>
+            </p>
+            <% end %>
+          </div>
+          <div class="card-rating">
+            <% total_review = 0 %>
+            <% cocktail.reviews.each  do |review| %>
+              <%total_review += review.rating %>
+            <% end %>
+            <% if cocktail.reviews.count != 0 %>
+              <p> <%= average = total_review / cocktail.reviews.count  %><i class="fas fa-star"></i></p>
+            <% end %>
+          </div>
+      </div>
       <% end %>
     </div>
   </div>
