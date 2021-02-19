@@ -11,7 +11,7 @@
       <% @cocktail.reviews.each do |review| %>
       <p>
         <%= review.content %> - <%= review.rating %>
-        <%= link_to "❌", review_path(review), method: :delete %>
+        <%= link_to "❌", review_path(@cocktail), method: :delete %>
       </p>
       <% end %>
       <%= simple_form_for([@cocktail, @review]) do |f| %>
