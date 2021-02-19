@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_19_075458) do
+ActiveRecord::Schema.define(version: 2021_02_19_111338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(version: 2021_02_19_075458) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "review_id"
-    t.index ["review_id"], name: "index_cocktails_on_review_id"
   end
 
   create_table "doses", force: :cascade do |t|
@@ -44,9 +42,11 @@ ActiveRecord::Schema.define(version: 2021_02_19_075458) do
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "cocktail_id", null: false
+    t.index ["cocktail_id"], name: "index_reviews_on_cocktail_id"
   end
 
-  add_foreign_key "cocktails", "reviews"
   add_foreign_key "doses", "cocktails"
   add_foreign_key "doses", "ingredients"
+  add_foreign_key "reviews", "cocktails"
 end
