@@ -14,7 +14,7 @@ class CocktailsController < ApplicationController
   def create
     @cocktail = Cocktail.new(strong_params)
     if @cocktail.save
-      redirect_to cocktails_path, notice: 'Cocktail was saved!'
+      redirect_to root_path, notice: 'Cocktail was saved!'
     else
       render :new
     end
