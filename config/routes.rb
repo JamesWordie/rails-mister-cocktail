@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   resources :cocktails, only: [:create, :new, :show] do
     resources :doses, only: [:new, :create]
     resources :reviews, only: [:new, :create, :show]
+    resources :garnish_tags, only: [:new, :create]
   end
 
   resources :doses, only: [:destroy]
 
   resources :reviews, only: [:destroy]
+
+  resources :garnish_tags, only: [:destroy]
 end
