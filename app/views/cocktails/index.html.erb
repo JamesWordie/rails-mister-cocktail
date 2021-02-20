@@ -21,7 +21,7 @@
           <div class="card-info">
             <% cocktail.doses.each do |dose| %>
             <p>
-              <%= dose.description %> - <%= dose.ingredient.name %>
+              <%= dose.description %> - <%= dose.ingredient.name %> <%#= dose.garnish %>
             </p>
             <% end %>
           </div>

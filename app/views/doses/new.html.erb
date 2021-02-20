@@ -20,7 +20,8 @@
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
       <div class="form-inputs">
-        <%= f.input :description, placeholder: "How many shots?" %>
+        <%= f.input :description, collection: ['Pinch', 'Dash', 'Squeeze', '1 Shot', '2 Shots', '3 Shots', '4 Shots'], input_html: { class: 'select2' } %>
+        <%#= f.input :garnish, collection: ['Lime', 'Lemon', 'Celery', 'Tobasco', 'Worcestershire Sauce', 'Ice', 'Tonic', 'Soda'], input_html: { class: 'select2' } %>
         <%= f.association :ingredient, input_html: { class: 'select2' } %>
       </div>
 
