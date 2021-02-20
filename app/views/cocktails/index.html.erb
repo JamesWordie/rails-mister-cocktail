@@ -13,7 +13,7 @@
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= cl_image_path cocktail.photo.key, crop: :scale %>)">
           <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
           <%= link_to new_cocktail_dose_path(cocktail), class: 'card-tag-link' do  %>
-          <i class="fas fa-plus"></i>
+          <i class="fas fa-plus"></i><i class="fas fa-hourglass"></i>
           <% end %>
           <%= link_to new_cocktail_review_path(cocktail), class: 'card-tag-link-pen' do   %>
           <i class="fas fa-pen"></i>
@@ -35,7 +35,7 @@
             <% end %>
           </div>
           <%= link_to new_cocktail_garnish_tag_path(cocktail), class: 'card-tag-link-garnish' do  %>
-          <i class="fas fa-heart"></i>
+          <i class="fas fa-lemon"></i>
           <% end %>
           <div class="card-tags">
             <% cocktail.garnishes.each do |garnish| %>

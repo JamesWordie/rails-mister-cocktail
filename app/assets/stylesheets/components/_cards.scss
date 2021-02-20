@@ -31,7 +31,7 @@
   height: 30px;
   width: 30px;
   position: absolute;
-  left: 10px;
+  right: 10px;
   bottom: 10px;
   opacity: 0.8;
   // transform: rotatse(45deg);
@@ -56,10 +56,14 @@
   opacity: 0.8;
   // transform: rotatse(45deg);
   font-weight: lighter;
+  display:inline-flex;
   &:hover {
     color: white;
     text-decoration: none;
     opacity: 1;
+  }
+  .fas {
+    padding-right: 3px;
   }
 }
 
@@ -88,29 +92,33 @@
   color: white;
   border-radius: 50%;
   // border: 1px solid white;s
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   position: absolute;
-  right: 40px;
-  top: 10px;
+  left: 10px;
+  bottom: 10px;
   opacity: 0.8;
   // transform: rotatse(45deg);
   font-weight: lighter;
+  display: inline-flex;
   &:hover {
     color: white;
     text-decoration: none;
     opacity: 1;
+  }
+  .fas {
+    padding-right: 3px;
   }
 }
 
 .card-tags {
   position: absolute;
   bottom: 8px;
-  left: 8px;
+  left: 35px;
   width: 80%;
+  opacity: 0.7;
   span {
-    background: $blue;
-    font-size: .7em;
+    font-size: .5em;
     padding: 2px 4px;
     border-radius: 3px;
   }

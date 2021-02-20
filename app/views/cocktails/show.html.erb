@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/random?drink');">
   <%= link_to 'All Cocktails', root_path, class: 'btn mx-5' %>
   <div class="container text-center">
-    <h1>Add a Shot(s) to <%= @cocktail.name %></h1>
+    <h1><%= @cocktail.name %></h1>
   </div>
 </div>
 
@@ -9,6 +9,7 @@
 <div class="container mt-5">
   <div class="row justify-content-center ">
     <div class="col-4 shadow-sm p-3 mb-5 bg-body rounded">
+      <h5>Measures</h5>
       <% @cocktail.doses.each do |dose| %>
       <p>
         <%= dose.description %> - <%= dose.ingredient.name %>  <%#= dose.garnish %>
@@ -22,10 +23,25 @@
 <div class="container mt-5">
   <div class="row justify-content-center ">
     <div class="col-4 shadow-sm p-3 mb-5 bg-body rounded">
+      <h5>Reviews</h5>
       <% @cocktail.reviews.each do |review| %>
       <p>
         <%= review.content %> - <%= review.rating %> <i class="fas fa-star"></i>
-        <%= link_to "🗑", review_path(review), method: :delete %>
+        <%= link_to "❌", review_path(review), method: :delete %>
+      </p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row justify-content-center ">
+    <div class="col-4 shadow-sm p-3 mb-5 bg-body rounded">
+      <h5>Garnishes</h5>
+      <% @cocktail.garnishes.each do |garnish| %>
+      <p>
+        <%= garnish.name %>
+        <%= link_to "❌", cocktail_garnish_tag_path(garnish), method: :delete %>
       </p>
       <% end %>
     </div>

@@ -15,6 +15,9 @@ class GarnishTagsController < ApplicationController
   end
 
   def destroy
-
+    @cocktail = Cocktail.find(params[:cocktail_id])
+    @garnish_tag = Garnish.find(params[:id])
+    @garnish_tag.destroy
+    redirect_to cocktail_path(@cocktail)
   end
 end
