@@ -5,13 +5,13 @@
   </div>
 </div>
 
-
+<div class="container-main">
 <div class="container mt-5">
   <div class="row justify-content-center ">
-    <div class="col-4 shadow-sm p-3 mb-5 bg-body rounded">
-      <h5>Measures</h5>
+    <div class="col-6 shadow-sm p-3 mb-5 bg-body rounded">
+      <h5 class="fw-bold text-center">Measures</h5>
       <% @cocktail.doses.each do |dose| %>
-      <p>
+      <p class="text-center">
         <%= dose.description %> - <%= dose.ingredient.name %>  <%#= dose.garnish %>
         <%= link_to "❌", dose_path(dose), method: :delete %>
       </p>
@@ -22,10 +22,10 @@
 
 <div class="container mt-5">
   <div class="row justify-content-center ">
-    <div class="col-4 shadow-sm p-3 mb-5 bg-body rounded">
-      <h5>Reviews</h5>
+    <div class="col-6 shadow-sm p-3 mb-5 bg-body rounded">
+      <h5 class="fw-bold text-center">Reviews</h5>
       <% @cocktail.reviews.each do |review| %>
-      <p>
+      <p class="text-center">
         <%= review.content %> - <%= review.rating %> <i class="fas fa-star"></i>
         <%= link_to "❌", review_path(review), method: :delete %>
       </p>
@@ -36,14 +36,15 @@
 
 <div class="container mt-5">
   <div class="row justify-content-center ">
-    <div class="col-4 shadow-sm p-3 mb-5 bg-body rounded">
-      <h5>Garnishes</h5>
+    <div class="col-6 shadow-sm p-3 mb-5 bg-body rounded">
+      <h5 class="fw-bold text-center">Garnishes</h5>
       <% @cocktail.garnishes.each do |garnish| %>
-      <p>
+      <p class="text-center">
         <%= garnish.name %>
         <%= link_to "❌", cocktail_garnish_tag_path(garnish), method: :delete %>
       </p>
       <% end %>
     </div>
   </div>
+</div>
 </div>
