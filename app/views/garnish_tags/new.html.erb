@@ -1,1 +1,25 @@
-new.html.erb
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://source.unsplash.com/random?lime, cocktail');">
+  <%= link_to 'All Cocktails', root_path, class: 'btn mx-5' %>
+  <div class="container text-center">
+    <h1>Add Some Garnishes to <%= @cocktail.name %></h1>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row justify-content-center ">
+    <div class="col-4 shadow-sm p-3 mb-5 bg-body rounded">
+      <%= simple_form_for([@cocktail, @garnish_tag]) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <div class="form-inputs">
+        <%= f.input :name, collection: Garnish.all, input_html: {  class: 'multiple-select', multiple: true }, include_hidden: false %> <%#input_html: { class: 'select2' } %>
+      </div>
+
+      <div class="form-actions btn btn-primary">
+        <%= f.button :submit %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

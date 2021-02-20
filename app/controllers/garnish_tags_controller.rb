@@ -1,6 +1,5 @@
 class GarnishTagsController < ApplicationController
   def new
-    raise
     @cocktail = Cocktail.find(params[:cocktail_id])
     @garnish_tag = GarnishTag.new
   end
